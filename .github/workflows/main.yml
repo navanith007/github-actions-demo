@@ -12,12 +12,16 @@ jobs:
       - name: Install dependencies
         run: |
           make install
-      - name: lint
+      - name: Lint
         run: |
           make lint
-      - name: test
+      - name: Test
         run: |
           make test
-      - name: format
+      - name: Format
         run: |
           make format
+      - namw: Containerise
+        runs:
+          using: 'docker'
+          image: 'Dockerfile'
