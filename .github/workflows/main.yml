@@ -1,14 +1,23 @@
 name: Python Application test with github Actions
-on: [push]
+on: [ push ]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.7.12
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.7.12
-    - name: Install dependencies
-      run: |
-        make install
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.7.12
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7.12
+      - name: Install dependencies
+        run: |
+          make install
+      - name: lint
+        run: |
+          make lint
+      - name: test
+        run: |
+          make test
+      - name: format
+        run: |
+          make format
